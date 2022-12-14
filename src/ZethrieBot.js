@@ -21,11 +21,17 @@ async function main() {
 
         console.log("\nStarted refreshing application (/) commands.");
         const slashCommandsJson = client.slashCommands.map((cmd) => {
+            console.log(cmd);
             cmd.getSlashCommandJSON();
         });
 
         console.log("Command JSON:");
         console.log(slashCommandsJson);
+
+        //(( THIS IS A TEST ))
+        const WhoisSlashCommand = require("./commands/whois");
+        console.log(WhoisSlashCommand.getSlashCommandJSON());
+        //(( END OF TEST ))
 
         await client.rest.put(
             Routes.applicationGuildCommands(
